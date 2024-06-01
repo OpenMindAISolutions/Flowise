@@ -79,6 +79,7 @@ const ChatbotFull = () => {
             if (chatflowData.chatbotConfig) {
                 try {
                     const parsedConfig = JSON.parse(chatflowData.chatbotConfig)
+                    Object.assign(parsedConfig, { footer: { company: parsedConfig.company, companyLink: parsedConfig.companyLink } })
                     setChatbotTheme(parsedConfig)
                     if (parsedConfig.overrideConfig) {
                         // Generate new sessionId

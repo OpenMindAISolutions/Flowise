@@ -64,6 +64,8 @@ const ShareChatbot = ({ isSessionMemory }) => {
     const [errorMessage, setErrorMessage] = useState(chatbotConfig?.errorMessage ?? '')
     const [backgroundColor, setBackgroundColor] = useState(chatbotConfig?.backgroundColor ?? defaultConfig.backgroundColor)
     const [fontSize, setFontSize] = useState(chatbotConfig?.fontSize ?? defaultConfig.fontSize)
+    const [company, setcompany] = useState(chatbotConfig?.company ?? '')
+    const [companyLink, setcompanyLink] = useState(chatbotConfig?.companyLink ?? '')
     const [poweredByTextColor, setPoweredByTextColor] = useState(chatbotConfig?.poweredByTextColor ?? defaultConfig.poweredByTextColor)
 
     const [botMessageBackgroundColor, setBotMessageBackgroundColor] = useState(
@@ -118,6 +120,8 @@ const ShareChatbot = ({ isSessionMemory }) => {
         if (errorMessage) obj.errorMessage = errorMessage
         if (backgroundColor) obj.backgroundColor = backgroundColor
         if (fontSize) obj.fontSize = fontSize
+        if (company) obj.company = company
+        if (company) obj.companyLink = companyLink
         if (poweredByTextColor) obj.poweredByTextColor = poweredByTextColor
 
         if (botMessageBackgroundColor) obj.botMessage.backgroundColor = botMessageBackgroundColor
@@ -276,6 +280,12 @@ const ShareChatbot = ({ isSessionMemory }) => {
             case 'fontSize':
                 setFontSize(value)
                 break
+            case 'company':
+                setcompany(value)
+                break
+            case 'companyLink':
+                setcompanyLink(value)
+                break
             case 'botMessageAvatarSrc':
                 setBotMessageAvatarSrc(value)
                 break
@@ -425,6 +435,8 @@ const ShareChatbot = ({ isSessionMemory }) => {
             {textField(errorMessage, 'errorMessage', 'Error Message', 'string', 'This is custom error message')}
             {colorField(backgroundColor, 'backgroundColor', 'Background Color')}
             {textField(fontSize, 'fontSize', 'Font Size', 'number')}
+            {textField(company, 'company', 'Company Name', 'string', 'Company')}
+            {textField(companyLink, 'companyLink', 'Company Link', 'string', 'https://www.company.com')}
             {colorField(poweredByTextColor, 'poweredByTextColor', 'PoweredBy TextColor')}
 
             {/*BOT Message*/}
